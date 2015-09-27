@@ -1,0 +1,12 @@
+<h1>Evento <%= @event.id %></h1>
+<p>
+    <strong>Título:</strong>
+    <%= @event.title %>
+</p>
+<p>
+    <strong>Descripción:</strong>
+    <%= @event.description %>
+</p>
+
+<%= link_to "Eliminar", @event, method: :delete, data: {confirm: 'Estas seguro?'} %>
+<%= link_to 'Todos los eventos', events_path %>

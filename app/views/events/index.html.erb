@@ -1,0 +1,21 @@
+<h1>Todos los eventos</h1>
+
+<div>
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Texto</th>
+            <th>Eliminar</th>
+        </tr>
+        <% @events.each do |event| %>
+        <tr>
+            <td><%= link_to event.title, event %></td>
+            <td><%= event.description %></td>
+            <td><%= link_to 'X', event_path(event),
+                    method: :delete,
+                    data: { confirm: 'Estás seguro?' }%></td>
+        </tr>
+        <% end %>
+
+    </table>
+</div>

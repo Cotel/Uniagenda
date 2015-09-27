@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Uniagenda</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <header>
+        <% if user_signed_in? %>
+        <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete%>
+        <% else %>
+        <%= link_to "Iniciar sesión", new_user_session_path %>
+        <%= link_to "Crear cuenta", new_user_registration_path%>
+        <% end %>
+    </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+<%= yield %>
+<%if user_signed_in? %>
+<%= link_to 'Nuevo evento', new_event_path %>
+<% end %>
+
+</body>
+</html>
