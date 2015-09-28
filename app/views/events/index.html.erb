@@ -1,21 +1,28 @@
 <h1>Todos los eventos</h1>
 
 <div>
-    <table>
-        <tr>
-            <th>Título</th>
-            <th>Texto</th>
-            <th>Eliminar</th>
-        </tr>
+    <table class="table table-stripped table-hover">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Texto</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
         <% @events.each do |event| %>
         <tr>
-            <td><%= link_to event.title, event %></td>
-            <td><%= event.description %></td>
+            <td><h6><%= link_to event.title, event %></h6></td>
+            <td class="lead"><%= event.description %></td>
             <td><%= link_to 'X', event_path(event),
                     method: :delete,
-                    data: { confirm: 'Estás seguro?' }%></td>
+                    data: { confirm: 'Estás seguro?' },
+                    class: "btn btn-danger"%></td>
         </tr>
         <% end %>
 
     </table>
+    <%if user_signed_in? %>
+    <%= link_to 'Nuevo evento', new_event_path, class: "btn btn-primary" %>
+    <% end %>
+
 </div>

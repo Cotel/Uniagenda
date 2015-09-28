@@ -1,12 +1,11 @@
-<h1>Evento <%= @event.id %></h1>
-<p>
-    <strong>Título:</strong>
-    <%= @event.title %>
-</p>
-<p>
-    <strong>Descripción:</strong>
+<h1><%= @event.title %></h1>
+<h5>Descripción:</h5>
+<p class="lead">
     <%= @event.description %>
 </p>
 
-<%= link_to "Eliminar", @event, method: :delete, data: {confirm: 'Estas seguro?'} %>
-<%= link_to 'Todos los eventos', events_path %>
+<%= link_to 'Todos los eventos', events_path, class: "btn btn-default" %>
+<%= link_to "Eliminar", @event,
+    method: :delete,
+    data: {confirm: 'Estas seguro?'},
+    class: "btn btn-danger" %>
