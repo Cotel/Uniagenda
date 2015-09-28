@@ -1,8 +1,29 @@
 <h1><%= @event.title %></h1>
+
 <h5>Descripción:</h5>
 <p class="lead">
     <%= @event.description %>
 </p>
+
+<!-- <h6>Lugar:</h6>
+<p class="lead">
+    <%= @event.place %>
+</p> -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th><h6>Lugar</h6></th>
+            <th><h6>Empieza</h6></th>
+            <th><h6>Acaba</h6><th>
+        </tr>
+    </thead>
+    <tr>
+        <td><%= @event.place %></td>
+        <td><%= @event.start_date %></td>
+        <td><%= @event.end_date %></td>
+    </tr>
+</table>
 
 <%= link_to 'Todos los eventos', events_path, class: "btn btn-default" %>
 <%= link_to "Eliminar", @event,

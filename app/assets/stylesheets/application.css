@@ -17,3 +17,7 @@
 .main-content {
     margin: 50px;
 }
+
+.form-horizontal {
+    padding-left: -30px;
+}

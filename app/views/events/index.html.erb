@@ -5,14 +5,20 @@
         <thead>
             <tr>
                 <th>Título</th>
-                <th>Texto</th>
+                <th>Descripción</th>
+                <th>Lugar</th>
+                <th>Empieza</th>
+                <th>Acaba</th>
                 <th>Eliminar</th>
             </tr>
         </thead>
         <% @events.each do |event| %>
         <tr>
             <td><h6><%= link_to event.title, event %></h6></td>
-            <td class="lead"><%= event.description %></td>
+            <td><%= event.description %></td>
+            <td><%= event.place %></td>
+            <td><%= event.start_date %></td>
+            <td><%= event.end_date %></td>
             <td><%= link_to 'X', event_path(event),
                     method: :delete,
                     data: { confirm: 'Estás seguro?' },
