@@ -4,6 +4,7 @@
     <table class="table table-stripped table-hover">
         <thead>
             <tr>
+                <th>Completado</th>
                 <th>Título</th>
                 <th>Descripción</th>
                 <th>Lugar</th>
@@ -13,7 +14,7 @@
             </tr>
         </thead>
         <% @events.each do |event| %>
-        <tr>
+        <tr>            
             <td><h6><%= link_to event.title, event %></h6></td>
             <td><%= event.description %></td>
             <td><%= event.place %></td>

@@ -1,7 +1,7 @@
 <form class="form-horizontal">
     <fieldset>
     <legend><h3>Nuevo evento</h3></legend>
-    <%= form_for :event, url: events_path do |f| %>
+    <%= form_for Event.new do |f| %>
     <div class="form-group">
         <label for="inputTitle" class="col-lg-2 control-label">Título</label>
         <div class="col-lg-10">
@@ -47,9 +47,6 @@
                     id: "inputEnd",
                     class: "form-control" %>
         </div>
-
-        <%= f.hidden_field :user_email, :value => current_user.email %>
-        <%= f.hidden_field :completed, :value => false %>
     </div>
     <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
