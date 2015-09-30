@@ -1,3 +1,11 @@
+<div class="alert alert-dismissible alert-warning" id="myAlert">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4>Atención!</h4>
+  <p>
+      La base de datos ha sido reiniciada para una mejor implementación. Disculpa las molestias.
+  </p>
+</div>
+
 <h1>Todos los eventos</h1>
 
 <div>
@@ -14,8 +22,9 @@
             </tr>
         </thead>
         <% @events.each do |event| %>
-        <tr>            
-            <td><h6><%= link_to event.title, event %></h6></td>
+        <tr id="event-<%= event.id%>">
+            <td><%= check_box_tag event.completed, class: "checkbox", id: event.id %></td>
+            <td><strong><%= link_to event.title, event %><strong></td>
             <td><%= event.description %></td>
             <td><%= event.place %></td>
             <td><%= event.start_date %></td>

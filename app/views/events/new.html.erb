@@ -1,59 +1,56 @@
-<form class="form-horizontal">
-    <fieldset>
+<%= form_for Event.new , html:{class: "form-horizontal"} do |f| %>
+<fieldset>
     <legend><h3>Nuevo evento</h3></legend>
-    <%= form_for Event.new do |f| %>
     <div class="form-group">
         <label for="inputTitle" class="col-lg-2 control-label">Título</label>
         <div class="col-lg-10">
             <%= f.text_field :title,
-                    placeholder: "Título",
-                    id: "inputTitle",
-                    class: "form-control"
-             %>
+            placeholder: "Título",
+            id: "inputTitle",
+            class: "form-control"
+                %>
+            </div>
         </div>
+        <div class="form-group">
+            <label for="inputPlace" class="col-lg-2 control-label">Lugar</label>
+            <div class="col-lg-10">
+                <%= f.text_field :place,
+                placeholder: "Lugar",
+                id: "inputPlace",
+                class: "form-control" %>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="textArea" class="col-lg-2 control-label">Descripción</label>
+            <div class="col-lg-10">
+                <%= f.text_area :description,
+                placeholder: "Descripción del evento",
+                id: "textArea",
+                class: "form-control" %>
+            </div>
 
-    </div>
-    <div class="form-group">
-        <label for="inputPlace" class="col-lg-2 control-label">Lugar</label>
-        <div class="col-lg-10">
-            <%= f.text_field :place,
-                    placeholder: "Lugar",
-                    id: "inputPlace",
-                    class: "form-control" %>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="textArea" class="col-lg-2 control-label">Descripción</label>
-        <div class="col-lg-10">
-            <%= f.text_area :description,
-                    placeholder: "Descripción del evento",
-                    id: "textArea",
-                    class: "form-control" %>
+        <div class="form-group">
+            <label for="inputStart" class="col-lg-2 control-label">Comienza</label>
+            <div class="col-lg-10">
+                <%= f.datetime_local_field :start_date,
+                :value => Time.now,
+                id: "inputStart",
+                class: "form-control" %>
+            </div>
+            <label for="inputEnd" class="col-lg-2 control-label">Termina</label>
+            <div class="col-lg-10">
+                <%= f.datetime_local_field :end_date,
+                placeholder: "yy-mm-dd, hh:mm",
+                id: "inputEnd",
+                class: "form-control" %>
+            </div>
         </div>
-
-    </div>
-    <div class="form-group">
-        <label for="inputStart" class="col-lg-2 control-label">Comienza</label>
-        <div class="col-lg-10">
-            <%= f.datetime_local_field :start_date,
-                    :value => Time.now,
-                    id: "inputStart",
-                    class: "form-control" %>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <%= link_to "Cancelar", events_path, class: "btn btn-default" %>
+                <%= f.submit "Guardar", class: "btn btn-primary" %>
+            </div>
         </div>
-        <label for="inputEnd" class="col-lg-2 control-label">Termina</label>
-        <div class="col-lg-10">
-            <%= f.datetime_local_field :end_date,
-                    placeholder: "yy-mm-dd, hh:mm",
-                    id: "inputEnd",
-                    class: "form-control" %>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-lg-10 col-lg-offset-2">
-            <%= link_to "Cancelar", events_path, class: "btn btn-default" %>
-            <%= f.submit "Guardar", class: "btn btn-primary" %>
-        </div>
-    </div>
-    <% end %>
     </fieldset>
-</form>
+<% end %>
